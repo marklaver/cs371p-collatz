@@ -35,8 +35,6 @@ TEST(Collatz, read) {
     ASSERT_EQ( 1, p.first);
     ASSERT_EQ(10, p.second);}
 		
-		// new tests
-		
 // ----
 // eval
 // ----
@@ -58,19 +56,25 @@ TEST(Collatz, eval_4) {
     ASSERT_EQ(174, v);}
 
 // New tests
-		/*
 TEST(Collatz, eval_5) {
     const int v = collatz_eval(1, 1);
     ASSERT_EQ(1, v);}
 		
 TEST(Collatz, eval_6) {
     const int v = collatz_eval(10, 10);
-    ASSERT_EQ(1, v);}		
+    ASSERT_EQ(20, v);}		
 
 TEST(Collatz, eval_7) {
 	const int v = collatz_eval(11, 10);
-	ASSERT_EQ(0, v);}		
-*/
+	ASSERT_EQ(0, v);}
+/*
+TEST(Collatz, eval_8) {
+    const int v = collatz_eval(5, 5);
+    ASSERT_EQ(20, v);}		
+
+TEST(Collatz, eval_9) {
+    const int v = collatz_eval(5, 5);
+    ASSERT_EQ(20, v);}		*/
 // -----
 // print
 // -----
