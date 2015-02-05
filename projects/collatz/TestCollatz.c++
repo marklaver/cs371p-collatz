@@ -34,7 +34,13 @@ TEST(Collatz, read) {
     const pair<int, int> p = collatz_read(s);
     ASSERT_EQ( 1, p.first);
     ASSERT_EQ(10, p.second);}
-		
+
+TEST(Collatz, read_2) {
+    string s("11 10\n");
+    const pair<int, int> p = collatz_read(s);
+    ASSERT_EQ(11, p.first);
+    ASSERT_EQ(10, p.second);}
+				
 // ----
 // eval
 // ----
@@ -60,21 +66,23 @@ TEST(Collatz, eval_5) {
     const int v = collatz_eval(1, 1);
     ASSERT_EQ(1, v);}
 		
-TEST(Collatz, eval_6) {
+TEST(Collatz, eval_10_10) {
     const int v = collatz_eval(10, 10);
-    ASSERT_EQ(20, v);}		
+    ASSERT_EQ(7, v);}		
 
-TEST(Collatz, eval_7) {
-	const int v = collatz_eval(11, 10);
-	ASSERT_EQ(0, v);}
-/*
-TEST(Collatz, eval_8) {
-    const int v = collatz_eval(5, 5);
-    ASSERT_EQ(20, v);}		
+TEST(Collatz, eval_9_10) {
+	const int v = collatz_eval(9, 10);
+	ASSERT_EQ(20, v);}
 
-TEST(Collatz, eval_9) {
-    const int v = collatz_eval(5, 5);
-    ASSERT_EQ(20, v);}		*/
+TEST(Collatz, eval_10_11) {
+    const int v = collatz_eval(10, 11);
+    ASSERT_EQ(15, v);}		
+
+TEST(Collatz, eval_reverse) {
+	const int v = collatz_eval(10, 1);
+	ASSERT_EQ(20, v);}		
+	
+		
 // -----
 // print
 // -----
@@ -92,7 +100,7 @@ TEST(Collatz, solve) {
     istringstream r("1 10\n100 200\n201 210\n900 1000\n");
     ostringstream w;
     collatz_solve(r, w);
-    ASSERT_EQ("1 10 1\n100 200 1\n201 210 1\n900 1000 1\n", w.str());}
+    ASSERT_EQ("1 10 20\n100 200 125\n201 210 89\n900 1000 174\n", w.str());}
 
 /*
 % ls -al /usr/include/gtest/

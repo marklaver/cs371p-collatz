@@ -14,8 +14,6 @@
 #include <string>   // getline, string
 #include <utility>  // make_pair, pair
 
-#include "Collatz.h"
-
 using namespace std;
 
 // ------------
@@ -36,12 +34,12 @@ pair<int, int> collatz_read (const string& s) {
 
 int collatz_eval (int i, int j) {
 	int max = 1;
-	// If the numbers are reversed, fix them.
-	if (j < i) {
-		int temp = i;
-		i = j;
-		j = temp;
-	}
+			// If the numbers are reversed, fix them.
+		if (j < i) {
+			int temp = i;
+			i = j;
+			j = temp;
+		}
 	for (i; i <= j; i++) {
 		int n = i;
 		int r = 1;
@@ -61,9 +59,6 @@ int collatz_eval (int i, int j) {
 	}
 	return max;
 }
-		//		n = n + n/2 + 1;
-		//		r += 2;
-
 // -------------
 // collatz_print
 // -------------
@@ -83,3 +78,8 @@ void collatz_solve (istream& r, ostream& w) {
         const int            j = p.second;
         const int            v = collatz_eval(i, j);
         collatz_print(w, i, j, v);}}
+
+int main () {
+    using namespace std;
+    collatz_solve(cin, cout);
+    return 0;}				
