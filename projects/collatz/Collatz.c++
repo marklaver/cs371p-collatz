@@ -35,6 +35,22 @@ pair<int, int> collatz_read (const string& s) {
 
 int collatz_eval (int i, int j) {
     // <your code>
+/*		int r = 1;
+		while (n >= 1) {
+			if (n == 1)
+				return r;
+			else if (n % 2 != 0) {
+		//		n = n + n/2 + 1;
+		//		r += 2;
+				n = 3n + 1;
+				r++;
+			}
+			else {
+				n = n / 2
+				r++;
+			}
+		}
+*/		
     return 1;}
 
 // -------------
