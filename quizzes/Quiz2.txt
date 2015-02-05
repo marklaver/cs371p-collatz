@@ -1,0 +1,27 @@
+--
+CS371p: Quiz #2 (7 pts)
+--
+
+--------------------------------------------------------------------------
+ 1. Name three operator properties that can not be changed when
+    overloading an operator.
+    (3 pts)
+--
+
+arity
+associativity
+precedence
+
+--------------------------------------------------------------------------
+ 2. Why is assert inappropriate for testing?
+    (2 pts)
+--
+
+first failure skips the rest of the tests
+
+--------------------------------------------------------------------------
+ 3. Besides testing, what else is assert inappropriate for?
+    (1 pts)
+--
+
+user errors

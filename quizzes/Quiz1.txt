@@ -1,0 +1,27 @@
+--
+CS371p: Quiz #1 (7 pts)
+--
+
+--------------------------------------------------------------------------
+ 1. Java's ArrayList and LinkedList don't respond to next().
+    Why not?
+    (2 pts)
+--
+
+that wouldn't accommodate multiple iterators
+
+--------------------------------------------------------------------------
+ 2. What method does ArrayList and LinkeList respond to that does return
+    something that responds to next()?
+    (2 pts)
+--
+
+iterator()
+
+--------------------------------------------------------------------------
+ 3. What's the benefit of using Java's for each construct instead of the
+    the for construct that uses an index?
+    (2 pts)
+--
+
+some containers are not indexable
