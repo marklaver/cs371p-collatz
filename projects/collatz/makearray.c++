@@ -23,9 +23,9 @@ using namespace std;
 void collatz_eval () {
 
 	cout << "{ ";
-	for (int x = 1; x <= 500000; x++) {
+	for (unsigned int x = 1; x <= 10000; x++) {
 		unsigned int n = x;
-		int r = 0;
+		int r = 1;
 		while (n > 1) {
 			if ((n % 2) != 0) {
 				n = n + n/2 + 1;

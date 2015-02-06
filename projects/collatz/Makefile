@@ -9,6 +9,10 @@ Doxyfile:
 html: Doxyfile Collatz.h Collatz.c++ RunCollatz.c++ TestCollatz.c++
 	doxygen Doxyfile
 
+
+Sphere: SphereCollatz.c++
+	 g++-4.7 -pedantic -std=c++11 -Wall SphereCollatz.c++ -o Sphere 
+
 RunCollatz: Collatz.h Collatz.c++ RunCollatz.c++
 	g++-4.7 -pedantic -std=c++11 -Wall Collatz.c++ RunCollatz.c++ -o RunCollatz
 
@@ -32,3 +36,4 @@ clean:
 	rm -f RunCollatz.tmp
 	rm -f TestCollatz
 	rm -f TestCollatz.out
+	rm -f Sphere

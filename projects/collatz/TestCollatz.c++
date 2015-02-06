@@ -29,12 +29,18 @@ using namespace std;
 // read
 // ----
 
+/**
+ * Should read two numbers in and store them correctly.
+ */
 TEST(Collatz, read) {
     string s("1 10\n");
     const pair<int, int> p = collatz_read(s);
     ASSERT_EQ( 1, p.first);
     ASSERT_EQ(10, p.second);}
 
+/**
+ * If the numbers are reversed, that's ok for now.
+ */
 TEST(Collatz, read_2) {
     string s("11 10\n");
     const pair<int, int> p = collatz_read(s);
@@ -45,39 +51,64 @@ TEST(Collatz, read_2) {
 // eval
 // ----
 
+/**
+ * Test known values 1 10 20
+ */
 TEST(Collatz, eval_1) {
     const int v = collatz_eval(1, 10);
     ASSERT_EQ(20, v);}
 
+/**
+ * Test known values 100 200 125
+ */
 TEST(Collatz, eval_2) {
     const int v = collatz_eval(100, 200);
     ASSERT_EQ(125, v);}
 
+/**
+ * Test known values 201 210 89
+ */
 TEST(Collatz, eval_3) {
     const int v = collatz_eval(201, 210);
     ASSERT_EQ(89, v);}
 
+/**
+ * Test known values 900 1000 174
+ */
 TEST(Collatz, eval_4) {
     const int v = collatz_eval(900, 1000);
     ASSERT_EQ(174, v);}
 
-// New tests
+/**
+ * Find correct value for n = 1.
+ */
 TEST(Collatz, eval_5) {
     const int v = collatz_eval(1, 1);
     ASSERT_EQ(1, v);}
-		
+/**
+ * Two of the same number shouldn't cause a problem
+ */		
 TEST(Collatz, eval_10_10) {
     const int v = collatz_eval(10, 10);
     ASSERT_EQ(7, v);}		
 
+/**
+ * Increments of each other should not cause a problem.
+ */
 TEST(Collatz, eval_9_10) {
 	const int v = collatz_eval(9, 10);
 	ASSERT_EQ(20, v);}
 
-TEST(Collatz, eval_10_11) {
-    const int v = collatz_eval(10, 11);
-    ASSERT_EQ(15, v);}		
+/**
+ * Test much higher known value: 11630 57433 340.
+ */
+TEST(Collatz, eval_high) {
+    const int v = collatz_eval(11630, 57433);
+    ASSERT_EQ(340, v);}		
 
+/**
+ * If the numbers are reversed, still return the correct answer
+ */
 TEST(Collatz, eval_reverse) {
 	const int v = collatz_eval(10, 1);
 	ASSERT_EQ(20, v);}		
@@ -87,6 +118,9 @@ TEST(Collatz, eval_reverse) {
 // print
 // -----
 
+/**
+ * Check for accurate printing
+ */
 TEST(Collatz, print) {
     ostringstream w;
     collatz_print(w, 1, 10, 20);
@@ -96,12 +130,23 @@ TEST(Collatz, print) {
 // solve
 // -----
 
+/**
+ * Check for acceptability of multiple lines of code
+ */
 TEST(Collatz, solve) {
     istringstream r("1 10\n100 200\n201 210\n900 1000\n");
     ostringstream w;
     collatz_solve(r, w);
     ASSERT_EQ("1 10 20\n100 200 125\n201 210 89\n900 1000 174\n", w.str());}
 
+/**
+ * Test multiple edge cases
+ */
+TEST(Collatz, solve_2) {
+    istringstream r("10 1\n7 7\n10000 10000\n79901 13866\n");
+    ostringstream w;
+    collatz_solve(r, w);
+    ASSERT_EQ("10 1 20\n7 7 17\n10000 10000 30\n79901 13866 351\n", w.str());}
 /*
 % ls -al /usr/include/gtest/
 ...

@@ -29,12 +29,14 @@ using namespace std;
 // read
 // ----
 
+// Should read two numbers in and store them correctly.
 TEST(Collatz, read) {
     string s("1 10\n");
     const pair<int, int> p = collatz_read(s);
     ASSERT_EQ( 1, p.first);
     ASSERT_EQ(10, p.second);}
 
+// If the numbers are reversed, that's ok for now.
 TEST(Collatz, read_2) {
     string s("11 10\n");
     const pair<int, int> p = collatz_read(s);
@@ -61,15 +63,16 @@ TEST(Collatz, eval_4) {
     const int v = collatz_eval(900, 1000);
     ASSERT_EQ(174, v);}
 
-// New tests
 TEST(Collatz, eval_5) {
     const int v = collatz_eval(1, 1);
     ASSERT_EQ(1, v);}
-		
+
+// Two of the same number shouldn't cause a problem.		
 TEST(Collatz, eval_10_10) {
     const int v = collatz_eval(10, 10);
     ASSERT_EQ(7, v);}		
 
+// Increments of each other should not cause a problem.
 TEST(Collatz, eval_9_10) {
 	const int v = collatz_eval(9, 10);
 	ASSERT_EQ(20, v);}
@@ -78,6 +81,7 @@ TEST(Collatz, eval_10_11) {
     const int v = collatz_eval(10, 11);
     ASSERT_EQ(15, v);}		
 
+// If the numbers are reversed, still return the correct answer
 TEST(Collatz, eval_reverse) {
 	const int v = collatz_eval(10, 1);
 	ASSERT_EQ(20, v);}		
