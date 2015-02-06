@@ -48,8 +48,8 @@ int collatz_eval (int i, int j) {
 		while (n > 1) {
 			if ((n % 2) != 0) {
 
-				n = 3 * n + 1;
-				r++;
+				n = n + n/2 + 1;
+				r += 2;
 			}
 			else {
 				n = n / 2;
